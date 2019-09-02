@@ -1,4 +1,1 @@
-SHELL=/bin/bash
-BASH_ENV=/tmp/container.env
-
 */30 * * * * /usr/local/bin/ruby -C /usr/src/app run.rb >> /var/log/ptp-cron.log 2>&1

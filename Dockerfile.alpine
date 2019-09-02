@@ -1,15 +1,14 @@
-FROM ruby:2.6-slim
+FROM ruby:2.6-alpine
 
 # install redis
-RUN apt-get update && apt-get install -y \
-  make gcc \
-  redis-server \
-  cron \
- && rm -rf /var/lib/apt/lists/*
+RUN apk update && apk add \
+  make gcc libc-dev bash \
+  redis \
+  dcron \
+  && rm -rf /var/cache/apk/*
 
 ## CRON
 COPY ptp-cron /etc/cron.d/ptp-cron
-RUN sed -i '1iSHELL=/bin/bash\nBASH_ENV=/tmp/container.env\n' /etc/cron.d/ptp-cron
 RUN chmod 0644 /etc/cron.d/ptp-cron
 RUN crontab /etc/cron.d/ptp-cron
 

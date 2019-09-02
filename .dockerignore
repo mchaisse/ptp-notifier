@@ -1,8 +1,10 @@
 fixtures
+
+.dockerignore
 .env
 .gitignore
 .git
-Dockerfile
+Dockerfile*
 .DS_Store
 README.md
 .byebug_history

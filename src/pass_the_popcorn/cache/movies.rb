@@ -34,7 +34,7 @@ class PassThePopcorn
 
         Cache.initiated! unless initiated
 
-        Logger.debug("[PTP] No movies to nofify") if processed_movies.empty?
+        Logger.info("[PTP] No movies to nofify") if processed_movies.empty?
 
         processed_movies
       end

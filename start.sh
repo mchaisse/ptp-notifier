@@ -2,7 +2,11 @@
 set -e
 
 # start the cron jobs
-cron
+if [[ "$OSTYPE" == "linux-musl" ]]; then # Alpine
+  crond
+else # Gnu
+  cron
+fi
 
 # append "nothing" to the file which also modifies the last update timestamp
 # which forces a copy-on-write

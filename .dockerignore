@@ -1,0 +1,9 @@
+fixtures
+.env
+.gitignore
+.git
+Dockerfile
+.DS_Store
+README.md
+.byebug_history
+*~
